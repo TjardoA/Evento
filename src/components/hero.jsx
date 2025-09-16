@@ -16,9 +16,9 @@ import "swiper/css/effect-fade";
 
 export default function Hero() {
   const sliderImg = [
-    "herobanner-1.jpeg",
-    "herobanner-2.jpeg",
-    "herobanner-3.jpeg",
+    "herobanner_1.jpeg",
+    "herobanner_2.jpeg",
+    "herobanner_3.jpeg",
   ];
   return (
     <Swiper
@@ -39,7 +39,7 @@ export default function Hero() {
           <div className="relative w-full h-[100vh] flex items-center justify-center">
             <img
               src={img}
-              className="object-cover w-full h-full absolute top-0 left-0 z-0"
+              className="object-cover w-full h-full absolute top-0 left-0 z-0 "
               alt="Hero Slide 1"
             />
           </div>
