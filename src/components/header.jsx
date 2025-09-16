@@ -6,14 +6,14 @@ const NavItems = ["Home", "Concerts", "Up-Coming", "VIP", "Recommended"];
 export default function Navbar() {
   const [search, setSearch] = useState("");
   return (
-    <header className="bg-gradient-to-r from-[#14213d] via-black to-[#14213d] shadow-lg bg-[url('https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=1500&q=80')] bg-cover bg-center">
-      <div className="flex flex-col md:flex-row items-center justify-between px-8 py-6 bg-black/70 rounded-b-3xl shadow-lg">
+    <header className="bg-black/40 shadow-lg ">
+      <div className="flex flex-col md:flex-row items-center justify-between px-8 py-6 bg-black/60 rounded-b-1xl shadow-lg">
         {/* Logo/Brand */}
         <Link
           to="/"
           className="text-3xl font-extrabold text-sky-400 mb-2 md:mb-0 tracking-wide drop-shadow-lg"
         >
-          🎟️ EventManager
+          EventManager
         </Link>
         {/* Search */}
         <div className="flex-1 flex justify-center">
