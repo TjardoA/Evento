@@ -15,16 +15,12 @@ import "swiper/css/scrollbar";
 import "swiper/css/effect-fade";
 
 export default function Hero() {
+  const sliderImg = [
+    "herobanner-1.jpeg",
+    "herobanner-2.jpeg",
+    "herobanner-3.jpeg",
+  ];
   return (
-    /* <ReactPlayer
-      src="/video/herobanner_video.mp4"
-      playing={true}
-      loop={true}
-      muted={true}
-      width="100vw"
-      height="100vh"
-    /> */
-
     <Swiper
       // install Swiper modules
       modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay, EffectFade]}
@@ -38,24 +34,17 @@ export default function Hero() {
       effect="fade"
       className="hero-swiper"
     >
-      <SwiperSlide>
-        <div className="relative w-full h-[100vh] flex items-center justify-center">
-          <img
-            src="/test-img.jpeg"
-            className="object-cover w-full h-full absolute top-0 left-0 z-0"
-            alt="Hero Slide 1"
-          />
-        </div>
-      </SwiperSlide>
-      <SwiperSlide>
-        <div className="relative w-full h-[100vh] flex items-center justify-center">
-          <img
-            src="/test-img-2.jpeg"
-            className="object-cover w-full h-full absolute top-0 left-0 z-0"
-            alt="Hero Slide 2"
-          />
-        </div>
-      </SwiperSlide>
+      {sliderImg.map((img, index) => (
+        <SwiperSlide>
+          <div className="relative w-full h-[100vh] flex items-center justify-center">
+            <img
+              src={img}
+              className="object-cover w-full h-full absolute top-0 left-0 z-0"
+              alt="Hero Slide 1"
+            />
+          </div>
+        </SwiperSlide>
+      ))}
     </Swiper>
   );
 }
