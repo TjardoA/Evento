@@ -1,13 +1,20 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
-const NavItems = ["Home", "Concerts", "Up-Coming", "VIP", "Recommended"];
+const NavItems: string[] = [
+  "Home",
+  "Concerts",
+  "Up-Coming",
+  "VIP",
+  "Recommended",
+];
 
 export default function Navbar() {
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState<string>("");
+
   return (
-    <header className="bg-black/40 shadow-lg ">
-      <div className="flex flex-col md:flex-row items-center justify-between px-8 py-6 bg-black rounded-b-1xl shadow-lg">
+    <header className="bg-black shadow-lg ">
+      <div className="flex flex-col md:flex-row items-center justify-between px-8 py-6 bg-black shadow-lg">
         {/* Logo/Brand */}
         <Link
           to="/"
@@ -73,7 +80,7 @@ export default function Navbar() {
           </Link>
         </div>
       </div>
-      <nav className="bg-[#14213d]/80 px-8 py-4 flex items-center justify-center rounded-b-2xl shadow">
+      <nav className="bg-[#14213d]/80 px-8 py-4 flex items-center justify-center shadow">
         <div className="flex flex-wrap gap-6">
           {NavItems.map((item, i) => (
             <Link
