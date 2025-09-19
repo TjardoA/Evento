@@ -2,7 +2,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import {
   Navigation,
   Pagination,
-  Scrollbar,
   A11y,
   Autoplay,
   EffectFade,
@@ -10,36 +9,35 @@ import {
 
 import "swiper/css";
 import "swiper/css/navigation";
-import "swiper/css/scrollbar";
 import "swiper/css/effect-fade";
 
 export default function Hero() {
-  const sliderImg: string[] = [
+  const sliderImages = [
     "herobanner_1.jpeg",
     "herobanner_2.jpeg",
     "herobanner_3.jpeg",
   ];
+
   return (
     <Swiper
-      modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay, EffectFade]}
-      spaceBetween={50}
+      modules={[Navigation, Pagination, A11y, Autoplay, EffectFade]}
       slidesPerView={1}
-      loop={true}
-      autoplay={{
-        delay: 6000,
-        disableOnInteraction: false,
-      }}
+      loop
+      autoplay={{ delay: 6000, disableOnInteraction: false }}
       effect="fade"
       className="hero-swiper"
     >
-      {sliderImg.map((img, index) => (
+      {sliderImages.map((img, index) => (
         <SwiperSlide key={index}>
-          <div className="relative w-full h-[100vh] flex items-center justify-center">
+          <div className="relative w-full h-[100vh]">
+            {/* Background image + overlay */}
             <img
               src={img}
-              className="object-cover w-full h-full absolute top-0 left-0 z-0"
-              alt={`Hero Slide ${index + 1}`}
+              alt={`Hero background ${index + 1}`}
+              className="absolute inset-0 w-full h-full object-cover"
+              aria-hidden="true"
             />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
           </div>
         </SwiperSlide>
       ))}

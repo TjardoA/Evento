@@ -13,24 +13,25 @@ export default function Navbar() {
   const [search, setSearch] = useState<string>("");
 
   return (
-    <header className="bg-black shadow-lg ">
-      <div className="flex flex-col md:flex-row items-center justify-between px-8 py-6 bg-black shadow-lg">
-        {/* Logo/Brand */}
+    <header className="fixed w-full z-50">
+      <div className="flex items-center justify-between px-8 py-4 bg-black/70 backdrop-blur-md shadow-lg">
+        {/* Logo */}
         <Link
           to="/"
-          className="text-3xl font-extrabold text-sky-400 mb-2 md:mb-0 tracking-wide drop-shadow-lg"
+          className="text-3xl font-extrabold text-sky-400 tracking-wide drop-shadow-lg"
         >
           EventManager
         </Link>
+
         {/* Search */}
-        <div className="flex-1 flex justify-center">
-          <div className="relative w-full max-w-xs">
+        <div className="hidden md:flex flex-1 justify-center px-6">
+          <div className="relative w-full max-w-sm">
             <input
-              className="bg-white px-4 py-2 pl-10 rounded-full w-full text-gray-800 shadow focus:outline-none focus:ring-2 focus:ring-sky-400 transition"
+              className="bg-gray-900/80 text-white px-4 py-2 pl-10 rounded-full w-full shadow-inner focus:outline-none focus:ring-2 focus:ring-sky-400 transition"
               type="text"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              placeholder="Zoek tickets, artiesten..."
+              placeholder="Search tickets, artists..."
             />
             <span className="absolute left-3 top-2.5 text-gray-400">
               <svg
@@ -50,11 +51,12 @@ export default function Navbar() {
             </span>
           </div>
         </div>
-        {/* Login & Tickets */}
+
+        {/* Buttons */}
         <div className="flex items-center space-x-3">
           <Link
             to="/tickets"
-            className="bg-sky-400 text-white px-4 py-2 rounded-full font-semibold shadow hover:bg-sky-500 transition"
+            className="bg-sky-400 text-white px-5 py-2 rounded-full font-semibold shadow hover:bg-sky-500 transition"
           >
             Tickets
           </Link>
@@ -74,23 +76,24 @@ export default function Navbar() {
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                d="M5.121 17.804A13.937 13.937 0 0112 15c2.5 0 4.847.655 6.879 1.804M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                d="M5.121 17.804A13.937 13.937 0 
+                0112 15c2.5 0 4.847.655 6.879 
+                1.804M15 11a3 3 0 11-6 0 3 3 
+                0 016 0z"
               />
             </svg>
           </Link>
         </div>
       </div>
-      <nav className="bg-[#14213d]/80 px-8 py-4 flex items-center justify-center shadow">
-        <div className="flex flex-wrap gap-6">
+
+      {/* Nav */}
+      <nav className="bg-black/80 backdrop-blur-sm px-8 py-3 flex items-center justify-center shadow-md">
+        <div className="flex gap-6">
           {NavItems.map((item, i) => (
             <Link
               key={i}
               to={item === "Home" ? "/" : `/${item.toLowerCase()}`}
-              className={`relative px-4 py-2 rounded-full font-medium transition shadow-sm ${
-                item === "Home"
-                  ? "bg-sky-400 text-white hover:bg-sky-500"
-                  : "bg-gray-800 text-gray-200 hover:bg-sky-400 hover:text-white"
-              }`}
+              className="relative text-gray-200 hover:text-sky-400 font-medium transition after:content-[''] after:block after:w-0 after:h-[2px] after:bg-sky-400 after:transition-all hover:after:w-full after:mt-1"
             >
               {item}
             </Link>
