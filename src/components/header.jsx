@@ -7,7 +7,7 @@ export default function Navbar() {
   const [search, setSearch] = useState("");
   return (
     <header className="bg-black/40 shadow-lg ">
-      <div className="flex flex-col md:flex-row items-center justify-between px-8 py-6 bg-black/60 rounded-b-1xl shadow-lg">
+      <div className="flex flex-col md:flex-row items-center justify-between px-8 py-6 bg-black rounded-b-1xl shadow-lg">
         {/* Logo/Brand */}
         <Link
           to="/"
