@@ -13,7 +13,7 @@ export default function Navbar() {
   const [search, setSearch] = useState<string>("");
 
   return (
-    <header className="fixed w-full z-50">
+    <header className="w-full z-50">
       <div className="flex items-center justify-between px-8 py-4 bg-black/70 backdrop-blur-md shadow-lg">
         {/* Logo */}
         <Link
